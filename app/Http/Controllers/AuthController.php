@@ -109,9 +109,12 @@ class AuthController extends Controller
      $userdata = $request->only('email', 'password');
      
      if(Auth::attempt($userdata)) {
-         return redirect()->route('index');
-         // dd($request->all());
-     
+        if (Auth::user()->role_id === User::ADMIN_ROLE) {
+         return redirect()->route('admin.index');
+        }
+        else{
+            return redirect()->route('index');
+        }
      }
      else{
          return redirect()->route('login')->with('error' ,'your email and password worng');

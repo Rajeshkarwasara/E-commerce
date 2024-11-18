@@ -2,7 +2,7 @@
 @section("content")
 
 <div class="container h-100" style="margin: 7% 0% 7% 7%;">
-
+<a href="{{route('index')}}"><i class="fa-solid fa-circle-arrow-left"></i></a>
     <!-- Account page navigation-->
     <div class="row">
         <div class="col-xl-4">
