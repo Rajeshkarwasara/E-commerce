@@ -40,11 +40,12 @@
                         </div>
 
                     @endif
-                 
+
                     <hr>
                     <div class="card-body">
                         <form method="POST" action="{{route("add_user_data")}}" enctype="multipart/form-data">
                             @csrf
+                            @method('post')
                             <div class="row mb-3">
                                 <div class="col">
                                     <label for="fname" class="form-label">First Name</label>

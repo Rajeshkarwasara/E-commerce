@@ -47,6 +47,7 @@ Route::middleware(['CheckRoles'])->prefix('admin')->group(function () {
     Route::get('/user_list', [AdminController::class, 'user_list'])->name('user_list');
     Route::get('/user_edit/{id}', [AdminController::class, 'user_edit'])->name('user_edit');
     Route::get('/add_user', [AdminController::class, 'add_user'])->name('add_user');
+    Route::post('/add_user_data', [AdminController::class, 'add_user_data'])->name('add_user_data');
     Route::post('/add_img_edit/{id}', [AdminController::class, 'add_img_edit'])->name('add_img_edit');
     Route::delete('/user_delet/{id}', [AdminController::class, 'user_delet'])->name('user_delet');
 });
