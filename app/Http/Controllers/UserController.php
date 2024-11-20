@@ -27,7 +27,7 @@ class UserController extends Controller
     {
         if ($request->hasFile('profile') && $request->file('profile')->isValid()) {
             $imgName = 'lv_' . rand() . '.' . $request->file('profile')->extension();
-            $request->file('profile')->move(public_path('profiles/'), $imgName);
+            $request->file('profile')->move(public_path('profiles'), $imgName);
             DB::table('users')
                 ->where('id', Auth::id())
                 ->update(['profile' => $imgName]);
@@ -46,7 +46,7 @@ class UserController extends Controller
         try {
             $request->validate([
                 'fname' => 'required|min:2|max:10|string',
-                'lname' => 'required|min:2|max:10|string|different:fname',
+                'lname' => 'required|min:2|max:10|string|',
                 'email' => 'required|email|',
                 'contact' => 'numeric|nullable',
                 'gender' => 'required|in:Male,Female',
